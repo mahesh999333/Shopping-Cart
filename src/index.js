@@ -11,7 +11,7 @@ app.use(multer().any());
 //************************[MongoDB & Node.JS Connected🔗]*************************//
 mongoose
   .connect(
-    "mongodb+srv://Dharmendra:dkyadav123@cluster0.kq9bu.mongodb.net/productsManagementGroup43",
+    "mongodb+srv://mahesh999333:mahesh999333@cluster0.tecej.mongodb.net/productsManagementGroup43",
     {
       useNewUrlParser: true,
     }
