@@ -1,4 +1,4 @@
-//👇👇👇👇👇👇👇👇👇[Hello Mr Dk it's Order-Controller]👇👇👇👇👇👇👇👇👇//
+//👇👇👇👇👇👇👇👇👇[Hello it's Order-Controller]👇👇👇👇👇👇👇👇👇//
 
 const orderModel = require("../models/orderModels");
 const cartModel = require("../models/cardModels");
@@ -191,7 +191,7 @@ const updateOrder = async (req, res) => {
     });
   }
 
-  //Check order cancel or not
+  //Check order is cancellable or not
   if (findOrder.cancellable == false) {
     return res
       .status(400)
@@ -215,4 +215,4 @@ const updateOrder = async (req, res) => {
 
 //**********************[👇Order's Function's Expoerts👇]************************//
 module.exports = { createOrder, updateOrder };
-//👌👌👌👌👌👌👌[Thank You Mr Dkyadav Order-Controller End]👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌[Thank You Order-Controller End]👌👌👌👌👌👌👌👌//

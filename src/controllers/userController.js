@@ -1,4 +1,4 @@
-//👇👇👇👇👇👇👇👇👇[Hello Mr Dk it's User-Controller]👇👇👇👇👇👇👇👇👇//
+//👇👇👇👇👇👇👇👇👇[Hello it's User-Controller]👇👇👇👇👇👇👇👇👇//
 
 const userModel = require("../models/userModels");
 const bcrypt = require("bcrypt");
@@ -172,7 +172,7 @@ const createUser = async function (req, res) {
       res.status(400).send({ status: false, message: "Address is required" });
       return;
     }
-    address = JSON.parse(address); //convert Json to String
+    address = JSON.parse(address); //convert JSON to String
     //const {shipping , billing } = address
 
     //Check Shipping is Comming or not
@@ -380,7 +380,7 @@ const loginUser = async (req, res) => {
         iat: new Date().getTime() / 1000,
       },
       "DharmendrayadavGroup43", //it is secret key
-      { expiresIn: "77h" }
+      { expiresIn: "99h" }
     );
 
     // send response to  user that Author is successfully logged in
@@ -410,7 +410,7 @@ const getProfile = async function (req, res) {
     // if user does not exist
     let userDoc = await userModel.findById(userId);
     if (!userDoc) {
-      return res.status(400).send({
+      return res.status(404).send({
         status: false,
         message: "user does not exist",
       });
@@ -430,7 +430,7 @@ const getProfile = async function (req, res) {
       data: userDoc,
     });
   } catch (err) {
-    res.status(400).send({
+    res.status(500).send({
       status: false,
       message: "Internal Server Error",
       error: err.message,
@@ -473,7 +473,7 @@ const updateUser = async function (req, res) {
 
     //📌 AUTHORISATION:👇
     if (req.userId !== userId) {
-      return res.status(400).send({
+      return res.status(403).send({
         status: false,
         message: `Authorisation failed; You are logged in as ${req.userId}, not as ${userId}`,
       });
@@ -667,4 +667,4 @@ const updateUser = async function (req, res) {
 //**************************[👇All-Function's Exports👇]*************************//
 module.exports = { createUser, loginUser, getProfile, updateUser };
 
-//👌👌👌👌👌👌👌[Thank You Mr Dkyadav User-Controller End]👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌[Thank You User-Controller End]👌👌👌👌👌👌👌👌//

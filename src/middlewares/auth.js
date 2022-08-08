@@ -1,4 +1,4 @@
-//👇👇👇👇👇👇👇👇👇[Hello Mr Dk it's Auth-Controller]👇👇👇👇👇👇👇👇👇//
+//👇👇👇👇👇👇👇👇👇[Hello it's Auth-Controller]👇👇👇👇👇👇👇👇👇//
 
 const jwt = require("jsonwebtoken");
 const { isValidObjectId } = require("../validators/valitor");
@@ -22,7 +22,7 @@ const authentication = async function (req, res, next) {
 
     jwt.verify(
       token,
-      "DharmendrayadavGroup43",
+      "MaheshDhage",
       { ignoreExpiration: true },
       function (error, decodedToken) {
         // if token is invalid
@@ -78,7 +78,7 @@ const authorisation = async function (req, res, next) {
 
     //📌 AUTHORISATION:👇
     if (req.userId !== userId) {
-      return res.status(401).send({
+      return res.status(403).send({
         status: false,
         message: `Authorisation failed; You are logged in as ${req.userId}, not as ${userId}`,
       });
@@ -97,4 +97,4 @@ const authorisation = async function (req, res, next) {
 //***************************[👇Function's Publically👇]*************************//
 module.exports = { authentication, authorisation };
 
-//👌👌👌👌👌👌👌[Thank You Mr Dkyadav AWS-Controller End]👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌[Thank You AWS-Controller End]👌👌👌👌👌👌👌👌//

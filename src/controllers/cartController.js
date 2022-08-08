@@ -1,4 +1,4 @@
-//👇👇👇👇👇👇👇👇👇[Hello Mr Dk it's Cart-Controller]👇👇👇👇👇👇👇👇👇//
+//👇👇👇👇👇👇👇👇👇[Hello it's Cart-Controller]👇👇👇👇👇👇👇👇👇//
 
 const productModel = require("../models/productModels");
 const userModel = require("../models/userModels");
@@ -265,7 +265,7 @@ const updateCart = async function (req, res) {
     }
 
     //Check valid number or not
-    if (isNaN(Number(removeProduct))) {
+    if (isNaN(Number(removeProduct))) {  // The Number.isNaN() method determines whether the passed value is NaN and its type is Number. It is a more robust version of the original, global isNaN().
       return res.status(400).send({
         status: false,
         message: `removeProduct should be a valid number either 0 or 1`,
@@ -294,8 +294,8 @@ const updateCart = async function (req, res) {
       let updatedCart = await cartModel.findOneAndUpdate(
         { _id: cartId },
         {
-          $pull: { items: { productId: productId } },
-          $set: { totalPrice: totalAmount },
+          $pull: { items: { productId: productId } }, //The $pull operator removes from an existing array all instances of a value or values that match a specified condition.
+          $set: { totalPrice: totalAmount },  //The $set operator replaces the value of a field with the specified value.
           $inc: { totalItems: -1 },
         },
         { new: true }
@@ -443,4 +443,4 @@ const deleteCart = async function (req, res) {
 //***********************[👇Export's All Cart Function's👇]***********************//
 module.exports = { addToCart, updateCart, getCart, deleteCart };
 
-//👌👌👌👌👌👌👌[Thank You Mr Dkyadav Cart-Controller End]👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌[Thank You Cart-Controller End]👌👌👌👌👌👌👌👌//

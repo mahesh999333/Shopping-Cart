@@ -63,4 +63,4 @@ const userSchema = new mongoose.Schema(
 //*********************[👇Connection Creation & export model👇]******************//
 module.exports = mongoose.model("User", userSchema);
 
-//👌👌👌👌👌👌👌👌[Thank You Mr Dkyadav User-Schema End]👌👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌👌[Thank You User-Schema End]👌👌👌👌👌👌👌👌👌//

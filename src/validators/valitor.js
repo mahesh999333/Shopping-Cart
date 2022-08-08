@@ -11,14 +11,14 @@ const isValidRequestBody = function (requestBody) {
   return Object.keys(requestBody).length > 0;
 };
 
-//******************[👇This Is Emapty Validation Function👇]*********************//
+//******************[👇This Is Empty Validation Function👇]*********************//
 const isValid = function (value) {
   if (typeof value === "undefined" || value === null) return false;
   if (typeof value === "string" && value.trim().length === 0) return false;
   return true;
 };
 
-//*************[👇This is Alphabetical rejex Validation Function👇]**************//
+//*************[👇This is Alphabetical Regex Validation Function👇]**************//
 const isValid2 = function (value) {
   const dv = /[a-zA-Z]/;
   if (typeof value !== "string") return false;
@@ -26,7 +26,7 @@ const isValid2 = function (value) {
   return true;
 };
 
-//**************[👇This is Pin-Code rejex Validation Function👇]*****************//
+//**************[👇This is Pin-Code Regex Validation Function👇]*****************//
 const isValidPincode = function (value) {
   const dv = /^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$/;
   if (typeof value !== "number") return false;
@@ -34,20 +34,20 @@ const isValidPincode = function (value) {
   return true;
 };
 
-//****************[👇This is Email rejex Validation Function👇]******************//
+//****************[👇This is Email Regex Validation Function👇]******************//
 const isValidEmail = function (email) {
   const re =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 };
 
-//************[👇This is Mobile Number rejex Validation Function👇]**************//
+//************[👇This is Mobile Number Regex Validation Function👇]**************//
 const isValidPhone = function (mobileNumber) {
   // return /^([+]\d{2}[ ])?\d{10}$/.test(mobileNumber)
   return /^[6789]\d{9}$/.test(mobileNumber);
 };
 
-//**************[👇This is Password rejex Validation Function👇]*****************//
+//**************[👇This is Password Regex Validation Function👇]*****************//
 const isValidPassword = function (pass) {
   let passRE =
     /^(?!\S*\s)(?=\D*\d)(?=.*[!@#$%^&*])(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z]).{8,15}$/;
@@ -68,8 +68,8 @@ const hashPassword = async (password) => {
 };
 
 //*****************[👇This is Availble Size Validation Function👇]***************//
-const isSize = function (title) {
-  return ["S", "XS", "M", "X", "L", "XXL", "XL"].includes(title.toUpperCase());
+const isSize = function (size) {
+  return ["S", "XS", "M", "X", "L", "XXL", "XL"].includes(size.toUpperCase());
 };
 
 //*****************[👇This is valid price Validation Function👇]*****************//

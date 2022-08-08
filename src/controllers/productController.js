@@ -1,4 +1,4 @@
-//👇👇👇👇👇👇👇👇[Hello Mr Dk it's Product-Controller]👇👇👇👇👇👇👇👇👇//
+//👇👇👇👇👇👇👇👇[Hello it's Product-Controller]👇👇👇👇👇👇👇👇👇//
 
 const productModel = require("../models/productModels");
 const { uploadFile } = require("./awsController");
@@ -159,7 +159,7 @@ const createProduct = async function (req, res) {
       productImage = uploadedFileURL;
       //res.status(201).send({msg: 'file uploaded succesfully', data: uploadedFileURL})
     } else {
-      return res.status(400).send({ status: false, message: "No file found" });
+      return res.status(400).send({ status: false, message: "Product Image is mandatory." });
     }
 
     //Check Style Correct or not
@@ -170,11 +170,11 @@ const createProduct = async function (req, res) {
       return;
     }
 
-    if (availableSizes && Array.isArray(availableSizes)) {
-      return res
-        .status(400)
-        .send({ status: false, data: "Sizes is must be an Array" });
-    }
+    // if (availableSizes && Array.isArray(availableSizes)) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, data: "Sizes is must be an Array" });
+    // }
     //arraSizes: [type: enum]
 
     if (availableSizes && !isValidSize(availableSizes)) {
@@ -206,7 +206,7 @@ const createProduct = async function (req, res) {
         availableSizes = sizes;
       });
     }
-    //if (availableSizes) availableSizes = isValidSize(availableSizes);
+   
 
     if (installments && !isValidNum(installments)) {
       res
@@ -335,17 +335,17 @@ const getProduct = async function (req, res) {
 
     // Set property called isDeleted to false
     let condition = { isDeleted: false };
-    let data = Object.assign(filterQuery, condition);
+    let data = Object.assign(filterQuery, condition); // both objects combines and stored in data and filterQuery varibale
     console.log(data);
 
     let allProducts = await productModel
       .find(data)
-      .collation({ locale: "en" })
+      .collation({ locale: "en" })  //Collation allows users to specify language-specific rules for string comparison, such as rules for lettercase and accent marks.
       .sort(sortFilter);
 
     if (!allProducts.length) {
       return res
-        .status(200)
+        .status(404)
         .send({ status: false, msg: "Product not found Or Already Deleted" });
     }
     // Send all Products in response
@@ -539,8 +539,6 @@ const updateProduct = async function (req, res) {
          sizes.forEach((size)=>{
            if(!existSizes.includes(size)){
              existSizes.push(size)
-           }else{
-             
            }
          })
          updateProductData.availableSizes=existSizes
@@ -636,4 +634,4 @@ module.exports = {
   deleteProductById,
 };
 
-//👌👌👌👌👌👌[Thank You Mr Dkyadav Product-Controller End]👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌[Thank You Product-Controller End]👌👌👌👌👌👌👌👌//

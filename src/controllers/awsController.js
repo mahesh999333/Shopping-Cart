@@ -1,4 +1,4 @@
-//👇👇👇👇👇👇👇👇👇[Hello Mr Dk it's AWS-Controller]👇👇👇👇👇👇👇👇👇//
+//👇👇👇👇👇👇👇👇👇[Hello it's AWS-Controller]👇👇👇👇👇👇👇👇👇//
 
 const aws = require("aws-sdk");
 
@@ -17,7 +17,7 @@ let uploadFile = async (file) => {
     let uploadParams = {
       ACL: "public-read",
       Bucket: "classroom-training-bucket",
-      Key: "Dkyadav/" + file.originalname,
+      Key: "Mahesh/" + file.originalname,
       Body: file.buffer,
     };
 
@@ -35,4 +35,4 @@ let uploadFile = async (file) => {
 //**************************[All-Function's🐕 Exports]****************************//
 module.exports = { uploadFile };
 
-//👌👌👌👌👌👌👌[Thank You Mr Dkyadav AWS-Controller End]👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌[Thank You AWS-Controller End]👌👌👌👌👌👌👌👌//
