@@ -22,7 +22,7 @@ const authentication = async function (req, res, next) {
 
     jwt.verify(
       token,
-      "MaheshDhage",
+      "Mahesh",
       { ignoreExpiration: true },
       function (error, decodedToken) {
         // if token is invalid

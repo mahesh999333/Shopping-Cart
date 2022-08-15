@@ -16,7 +16,7 @@ mongoose
       useNewUrlParser: true,
     }
   )
-  .then((result) => console.log("Hello Mr Dkyadav MongoDb is connected 👌"))
+  .then((result) => console.log("Hello MongoDb is connected 👌"))
   .catch((err) => console.log(err));
 
 //**************************[👇It is Global Api's👇]*****************************//
@@ -27,4 +27,4 @@ app.listen(process.env.PORT || 3000, function () {
   console.log("Express app running on port 🏃 " + (process.env.PORT || 3000));
 });
 
-//👌👌👌👌👌👌👌👌[Thank You Mr Dkyadav Index-File End]👌👌👌👌👌👌👌👌👌//
+//👌👌👌👌👌👌👌👌[Thank You Index-File End]👌👌👌👌👌👌👌👌👌//

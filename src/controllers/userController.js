@@ -34,7 +34,7 @@ const createUser = async function (req, res) {
     }
 
     // Object Destructing
-    let { fname, lname, email, phone, password, address } = data;
+    let { fname, lname, email, phone, password, address } = data;  //by destructing>>>> no need to create new variable 
 
     // Check Name is coming or not
     if (!isValid(fname)) {
@@ -88,26 +88,6 @@ const createUser = async function (req, res) {
       return;
     }
 
-    if (files && files.length > 0) {
-      if (!isValidImage(files[0].originalname)) {
-        return res
-          .status(400)
-          .send({ status: false, message: "File extension not supported!" });
-      }
-      let uploadedFileURL = await uploadFile(files[0]);
-      data.profileImage = uploadedFileURL;
-      //res.status(201).send({msg: 'file uploaded succesfully', data: uploadedFileURL})
-    } else {
-      return res.status(400).send({ status: false, message: "No file found" });
-    }
-
-    // Check Phone Number is coming or not
-    if (!isValid(phone)) {
-      res
-        .status(400)
-        .send({ status: false, message: "Phone number is mandatory" });
-      return;
-    }
 
     // Validate the Phone Number
     if (!isValidPhone(phone)) {
@@ -297,6 +277,27 @@ const createUser = async function (req, res) {
       return;
     }
 
+    if (files && files.length > 0) {
+      if (!isValidImage(files[0].originalname)) {
+        return res
+          .status(400)
+          .send({ status: false, message: "File extension not supported!" });
+      }
+      let uploadedFileURL = await uploadFile(files[0]);
+      data.profileImage = uploadedFileURL;
+      //res.status(201).send({msg: 'file uploaded succesfully', data: uploadedFileURL})
+    } else {
+      return res.status(400).send({ status: false, message: "No file found" });
+    }
+
+    // Check Phone Number is coming or not
+    if (!isValid(phone)) {
+      res
+        .status(400)
+        .send({ status: false, message: "Phone number is mandatory" });
+      return;
+    }
+
     //Object Destructing
     let finalData = {
       fname,
@@ -379,7 +380,7 @@ const loginUser = async (req, res) => {
         userId: user._id.toString(),
         iat: new Date().getTime() / 1000,
       },
-      "DharmendrayadavGroup43", //it is secret key
+      "Mahesh", // it is secret key
       { expiresIn: "99h" }
     );
 
